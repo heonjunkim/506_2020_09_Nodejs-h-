@@ -69,8 +69,8 @@ router.get("/list",function(req,res){
     //  list 배열에 json 객체를 추가하기
     list.push({name : "홍길동"});
     list.push({name : "호랑이"});
-    list.push({name : "아수라"});
-    list.push({name : "아오리"});
+    list.push({name : "사스케"});
+    list.push({name : "카카시"});
     list.push({name : "카네기"});
 
     res.render("list",{list: list });
