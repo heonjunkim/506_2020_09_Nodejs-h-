@@ -1,15 +1,11 @@
 extends layout
 
 block content
-  h1 반갑습니다
+  h1 #{title}
   p 안녕하세요 오늘은 #{date} 입니다.
   p 지금 시각은 #{time} 입니다.
-    
-
-    
-    
-    input(type="text")
-
   
+  form(method="POST",action="/nameaddress") 
+    input(type="text", name = "name")  
     button 전송
 
