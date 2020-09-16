@@ -1,9 +1,11 @@
 var express = require("express");
 var router = express.Router();
+const moment = require("moment");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  let date = moment(new Date()).format("YYYY-MM-DD");
+  res.render("index", { date });
 });
 
 module.exports = router;
