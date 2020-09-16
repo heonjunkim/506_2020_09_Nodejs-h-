@@ -11,10 +11,10 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/nameaddress", function (req, res) {
-  let name = req.body.name;
+  let n = req.body.n; //요청입력,세번째칸은 변수명과 동일하게
   let date = moment(new Date()).format("YYYY-MM-DD");
   let time = moment(new Date()).format("HH:mm:ss");
-  let title = name + " 님 반갑습니다";
+  let title = n + " 님 반갑습니다";
 
   res.render("index", {
     title: title,
