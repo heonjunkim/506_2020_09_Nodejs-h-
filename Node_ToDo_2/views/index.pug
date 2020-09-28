@@ -1,5 +1,37 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(rel = "stylesheet", href = "/stylesheets/todo_main.css")
+  script(src="/javascripts/todoMain.js")
+
+
+  section.todo_main
+    h1(id="main_title") 할일목록
+    form(method="POST")
+      input(type="text", name="t_text", id="todo", placeholder="하고싶은것")
+      button(type="button", id="btn-save") 저장
+
+    article.todo_list
+      ul#todo_list
+        each vo in todoList
+          li #{vo.t_text}, #{vo.t_date}, #{vo.t_time}          
+            button(type="button",data-id=vo._id, class="btn-delete") 삭제
+            
+
+  //- section.todo_main
+  //-   h1 나의 투두 리스트
+
+  //-   form(method="POST")
+  //-     input(type="text", name="t_text", placeholder="하고싶은것")
+  //-     button(type="button", id="btn-save") 저장      
+
+  //-     ul        
+  //-       each vo in todoList
+  //-         li=vo.t_text                     
+  //-           button(type="button",data-id=vo._id, class="btn-update") 수정
+  //-           button(type="button",data-id=vo._id, class="btn-delete") 삭제
+              
+          
+            
+            
+    

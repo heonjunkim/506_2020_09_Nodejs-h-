@@ -7,16 +7,22 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var dbConn = mongoose.connection;
 
+dbConn.once("open", function () {
+  console.log("MongoDB Open OK");
+});
+
+dbConn.on("error", function (error) {
+  console.err(error);
+});
+
 // mongoDB Server
-mongoose.connect("mongodb://localhost/mybbs", {
+mongoose.connect("mongodb://localhost/todo", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var todoRouter = require("./routes/todoRoute");
-
 var app = express();
 
 // view engine setup
@@ -31,7 +37,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/todo", todoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
