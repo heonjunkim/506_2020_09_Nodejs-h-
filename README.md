@@ -19,3 +19,4 @@
 - npm install pug : jade view 엔진을 pug로 업데이트
 - npm uninstall jade < 삭제하고싶으면
 - app.js에서 view engine 을 jade를 pug로 변경
+- 깃이그노어 노드용으로 변경 집에가서
